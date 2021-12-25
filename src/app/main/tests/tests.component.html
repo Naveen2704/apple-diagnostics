@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="container-fluid p-0">
+    <h4 class="px-3 bg-light text-uppercase font-weight-bold p-2">Investigations</h4>    
+    <div class="row my-3 p-3">
+      <div class="col-12">
+        <div class="card border-0 shadow mb-2" *ngFor="let p of investigationsList">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-3 text-right my-auto">
+                <div class="catIcon">
+                  <img [src]="p.image" alt="">
+                </div>
+              </div>
+              <div class="col-9 ps-1 my-auto">
+                <h3 class="font-weight-bold m-0 mt-2">{{ p.investigation_name }}</h3>
+                <p class="text-danger mb-1" *ngIf="p.discount == 0;">Rs. {{ p.disc_price }}/-</p>
+                <!-- <p class="m-0"><small>{{ p.category }}</small></p> -->
+                <ion-fab-button (click)="addToCart(p.investigation_id)" color="danger" size="small" class="float-end m-0 mb-2 me-2"><i class="fas fa-plus"></i></ion-fab-button>
+                <p class="text-danger font-weight-bold mt-1" *ngIf="p.discount > 0;">
+                  <span class="badge bg-success">{{ p.discount + p.discount_unit }} Off</span> Rs. {{ p.disc_price }}/-
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

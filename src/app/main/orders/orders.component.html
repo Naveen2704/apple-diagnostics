@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="container-fluid p-0">
+    <h4 class="px-3 bg-light text-uppercase font-weight-bold p-2">ORDERS INFO</h4>
+    <div class="row p-2">
+      <div class="col-12">
+        <div class="card shadow mb-2" *ngFor="let p of orders">
+          <div class="card-header bg-white">
+            <h4 class="card-title font-weight-bold m-0">
+              ORDER ID : #{{ p.tracking_id }}
+              <span class="badge {{ (p.status == 1)?'bg-warning':'bg-success' }} float-end">{{ (p.status == 1)?'Ordered':'Report Ready' }}</span>
+            </h4>
+          </div>
+          <div class="card-body">
+            <p class="font-weight-bold">1. Complete Blood Picture <span class="float-end">Rs. 1500/-</span></p>
+            <p class="font-weight-bold m-0">2. Endoscopy <span class="float-end">Rs. 1000/-</span></p>
+          </div>
+          <div class="card-footer">
+            <h4 class="m-0">
+              Generated On : 24 May' 12
+              <span class="float-end text-danger font-weight-bold">Rs. 2500/-</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">&nbsp;</div>
+  <app-footer></app-footer>
+</ion-content>

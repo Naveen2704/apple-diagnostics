@@ -1,0 +1,99 @@
+
+
+<ion-app>
+  
+  <ion-header>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start" class="mobile-menu float-left">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="py-2 text-center" routerLink="/home">
+          <img src="assets/logoDark.png" alt="" class="w-75">
+        </ion-title>
+        <ion-buttons slot="end" class="float-end">
+          <!-- <a href="" class="me-3"><h2><i class="fas fa-user-circle"></i></h2></a> -->
+          <ion-button class="shadow-none" (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+          </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-split-pane contentId="content" class="app-sidemenu" when="(min-width:992px)">
+  
+          <ion-menu>
+              <ion-content class="sidemenu-bg">
+                  <ion-list class="p-2 border">
+                      <div class="row">
+                        <div class="col-4">
+                          <img src="assets/no_user_img.png" class="rounded-circle bg-light p-2" alt="">
+                        </div>
+                        <div class="col-8 my-auto">
+                          <ion-title class="p-0 mb-2">{{ userData.username }}</ion-title>
+                          <ion-text>{{ userData.mobile }}</ion-text>
+                        </div>
+                      </div>
+                  </ion-list>
+                  <ion-list class="menu-gradient p-2" lines="none">
+                    <ion-menu-toggle auto-hide="false">
+                      <ion-item routerLink="/home" class="menu-item" (click)="changeUrl('/home')" [class.selectedIndex]="'/home' === selectedUrl"  lines="none" detail="false">
+                        <ion-icon slot="start" ios="home-outline" md="home-sharp" class="me-3"></ion-icon>
+                        <ion-label class="pt-2">Home</ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle auto-hide="false">
+                      <ion-item routerLink="{{ (userData == null)?'/auth':'/profile' }}" class="menu-item" (click)="changeUrl('/profile')" [class.selectedIndex]="'/profile' === selectedUrl"  lines="none" detail="false">
+                        <ion-icon slot="start" ios="person-circle-outline" md="person-circle-sharp" class="me-3"></ion-icon>
+                        <ion-label class="pt-2">My Profile</ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle auto-hide="false">
+                      <ion-item routerLink="{{ (userData == null)?'/auth':'/packages' }}" class="menu-item" (click)="changeUrl('/packages')" [class.selectedIndex]="'/packages' === selectedUrl"  lines="none" detail="false">
+                        <ion-icon slot="start" ios="bag-add-outline" md="bag-add-sharp" class="me-3"></ion-icon>
+                        <ion-label class="pt-2">Packages</ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle auto-hide="false">
+                      <ion-item routerLink="{{ (userData == null)?'/auth':'/tests' }}" class="menu-item" (click)="changeUrl('/tests')" [class.selectedIndex]="'/tests' === selectedUrl"  lines="none" detail="false">
+                        <ion-icon slot="start" ios="flask-outline" md="flask-sharp" class="me-3"></ion-icon>
+                        <ion-label class="pt-2">Examinations</ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle auto-hide="false">
+                      <ion-item routerLink="/orders" class="menu-item" (click)="changeUrl('/orders')" [class.selectedIndex]="'/orders' === selectedUrl"  lines="none" detail="false">
+                        <ion-icon slot="start" ios="reorder-four-outline" md="reorder-four-sharp" class="me-3"></ion-icon>
+                        <ion-label class="pt-2">My Orders</ion-label>
+                      </ion-item>
+                    </ion-menu-toggle>
+                    <div *ngIf="(userData == null); then ifarea else nonarea"></div>
+                    <ng-template #ifarea>
+                      <ion-menu-toggle auto-hide="false">
+                        <ion-item routerLink="/home" class="menu-item" lines="none" detail="false">
+                          <ion-icon slot="start" ios="lock-closed-outline" md="lock-closed-sharp" class="me-3"></ion-icon>
+                          <ion-label class="pt-2">Login/Signup</ion-label>
+                        </ion-item>
+                      </ion-menu-toggle>
+                    </ng-template>
+                    <ng-template #nonarea>
+                      <ion-menu-toggle auto-hide="false">
+                        <ion-item routerLink="/cart" class="menu-item" (click)="changeUrl('/cart')" [class.selectedIndex]="'/cart' === selectedUrl"  lines="none" detail="false">
+                          <ion-icon slot="start" ios="cart-outline" md="cart-sharp" class="me-3"></ion-icon>
+                          <ion-label class="pt-2">Cart</ion-label>
+                        </ion-item>
+                      </ion-menu-toggle>
+                    </ng-template>
+                    
+                  </ion-list>
+              </ion-content>
+  
+          </ion-menu>
+          
+  
+          <ion-router-outlet id="content" main class="router-outlet"></ion-router-outlet>
+          
+      </ion-split-pane>
+      
+      <button mat-raised-button color="primary" matBadge="{{ localCart }}" matBadgePosition="after" routerLink="/cart" matBadgeColor="warn" class="btn-bottom"><i class="fas fa-shopping-cart"></i></button>
+      
+    </ion-content>
+</ion-app>

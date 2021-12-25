@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.applediagnostics",
+  "appName": "apple diagnostics",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

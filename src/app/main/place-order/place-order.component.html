@@ -1,0 +1,111 @@
+<ion-content>
+  <div class="container-fluid p-0">
+
+    <h4 class="px-3 bg-light text-uppercase font-weight-bold p-2 m-0">Book Appointment</h4>
+
+    <div class="row p-2">
+
+      <div class="col-12">
+
+        <mat-accordion>
+          <mat-expansion-panel color="primary" >
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-weight-bold">
+                Appointment @ Home
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="outline" class="w-100 pb-1">
+              <mat-label>Appointment Date Time *</mat-label>
+              <input matInput [matDatepicker]="picker1" #date1>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <div class="card mb-2" *ngFor="let p of addressList">
+              <div class="card-body">
+                  <h3 class="font-weight-bold mb-1">{{ p.name }}</h3>
+                  <p class="mb-1">{{ p.mobile }}</p>
+                  <p class="mb-1">{{ p.address }}</p>
+                  <p class="mb-1">{{ p.city }}, {{ p.state }} - {{ p.pincode }}</p>
+                  <button mat-raised-button color="warn" (click)="bookHere(p.address_id, date1.value)">Book Appointment Here</button>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-none">
+              <div class="card-body p-0">
+                <h4 class="bg-light font-weight-bold mb-2 p-2 m-0 text-center">New Address Info</h4>
+                <form [formGroup]="newAddressForm" (ngSubmit)="addNewAddress(date1.value)">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Name *</mat-label>
+                    <input type="text" matInput formControlName="name">
+                  </mat-form-field>
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Mobile No *</mat-label>
+                    <input type="text" matInput formControlName="mobile">
+                  </mat-form-field>
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Address *</mat-label>
+                    <textarea matInput formControlName="address"></textarea>
+                  </mat-form-field>
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>City *</mat-label>
+                        <input type="text" matInput formControlName="city">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>State *</mat-label>
+                        <input type="text" matInput formControlName="state">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6 pr-0">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Pincode *</mat-label>
+                        <input type="text" matInput formControlName="pincode">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <button color="primary" mat-raised-button class="w-100" type="submit">Add New Address</button>
+                </form>
+              </div>
+            </div>
+
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-weight-bold">
+                Appointment @ In-House
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="inHouseForm" (ngSubmit)="bookInHouse()">
+              <mat-form-field appearance="outline" class="w-100 pb-1">
+                <mat-label>Name *</mat-label>
+                <input type="text" matInput formControlName="name">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="w-100 pb-1">
+                <mat-label>Mobile No. *</mat-label>
+                <input type="text" matInput formControlName="mobile">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="w-100 pb-1">
+                <mat-label>Appointment Date Time *</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="appDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <button mat-raised-button class="w-100" color="primary">Book Appointment</button>
+            </form>
+
+          </mat-expansion-panel>
+
+        </mat-accordion>
+
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

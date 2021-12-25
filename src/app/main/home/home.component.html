@@ -1,0 +1,70 @@
+<ion-content>
+  <div class="container-fluid py-3">
+
+    <ion-slides class="mb-3 rounded shadow" pager="true">
+      <ion-slide *ngFor="let p of slidersList" class="border-0">
+        <img [src]="p.slider_image" class="w-100" alt="">
+      </ion-slide>
+    </ion-slides>
+
+    <div class="row">
+      <div class="col-md-4 col-lg-4 col-4 hover-pointer" routerLink="/tests/{{ p.menu_id }}"  *ngFor="let p of menusList">
+        <div class="card border-0 shadow mb-2">
+          <img [src]="p.menu_image" class="w-100 catIcon">
+          <div class="card-body p-1 my-1">
+            <h4 class="text-center m-0 font-weight-bold">{{ p.menu_name }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="font-weight-bold">Popular Packages</h2>
+        <div class="card border-0 shadow" *ngFor="let p of pacakgesList">
+          <img [src]="p.image" alt="" class="card-img-top">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 my-auto pe-1">
+                <ion-fab-button (click)="addToCart(p.package_id,'Package')" color="danger" size="small" class="float-end m-0 mb-2"><i class="fas fa-plus"></i></ion-fab-button>
+                <h3 class="font-weight-bold m-0">{{ p.package_name }}</h3>
+                <p class="text-danger" *ngIf="p.discount == 0;">Rs. {{ p.disc_price }}/-</p>
+                <p class="text-danger font-weight-bold m-0" *ngIf="p.discount > 0;"><span class="badge bg-success">{{ p.discount + p.discount_unit }} Off</span> Rs. {{ p.disc_price }}/-</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center my-3">
+          <button class="bg-dark text-white" mat-raised-button routerLink="/packages">More Packages <i class="fas fa-chevron-circle-right"></i></button>
+        </p>
+
+        <h2 class="font-weight-bold mt-3">Popular Investigations</h2>
+        <div class="card border-0 shadow mb-2" *ngFor="let p of investigationsList">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-3 text-right my-auto">
+                <div class="catIcon">
+                  <img [src]="p.image" alt="">
+                </div>
+              </div>
+              <div class="col-9 ps-1 my-auto">
+                <h3 class="font-weight-bold m-0 mt-2">{{ p.investigation_name }}</h3>
+                <p class="text-danger mb-1" *ngIf="p.discount == 0;">Rs. {{ p.disc_price }}/-</p>
+                <!-- <p class="m-0"><small>{{ p.category }}</small></p> -->
+                <ion-fab-button (click)="addToCart(p.investigation_id,'Investigation')" color="danger" size="small" class="float-end m-0 mb-2 me-2"><i class="fas fa-plus"></i></ion-fab-button>
+                <p class="text-danger font-weight-bold mt-1" *ngIf="p.discount > 0;">
+                  <span class="badge bg-success">{{ p.discount + p.discount_unit }} Off</span> Rs. {{ p.disc_price }}/-
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center my-3">
+          <button class="bg-dark text-white" mat-raised-button routerLink="/tests">More Investigations <i class="fas fa-chevron-circle-right"></i></button>
+        </p>
+
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>            
+</ion-content>

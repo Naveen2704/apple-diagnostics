@@ -1,0 +1,93 @@
+
+<ion-content class="">
+  <div class="container text-center login-page">
+
+    <ion-slides pager="false" #slides>
+      <ion-slide>
+        <div class="row login_div justify-content-center m-0">
+          <div class="col-md-5 p-0 col-12">
+            <mat-card class="border-0 shadow-none">
+              <mat-card-content class="py-3">
+                <p class="text-center mt-5">
+                  <img src="assets/logoDark.png" class="w-100" alt="">
+                </p>
+                <h3 class="text-start m-0">Welcome Back!</h3>
+                <h1 class="text-start mb-3 font-weight-bold">Login</h1>
+                <!-- <h4 class="text-center my-4">Sign in to start your session</h4> -->
+                <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="font-weight-bold">Username</mat-label>
+                    <input type="text" autocomplete="off" matInput formControlName="username">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-1">
+                    <mat-label class="font-weight-bold">Password</mat-label>
+                    <input type="password" autocomplete="off" matInput formControlName="password">
+                  </mat-form-field>
+                  <div class="row">
+                    <div class="col-12">
+                      <p>
+                        <button mat-fab color="primary" class="float-end login-btn"><mat-icon>arrow_forward</mat-icon></button>
+                        <a href="" class="float-start mt-3 font-weight-bold text-decoration-none">Forgot Password ?</a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                </form>
+                <!-- <p class="text-center my-2"><a routerLink="/home">Go to Home</a></p>ss -->
+                <p class="text-center mt-5">
+                  Don't Have an account? <a class="font-weight-bold text-decoration-none" (click)="slides.slideNext()">Create One</a>
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="row login_div justify-content-center m-0">
+          <div class="col-md-5 p-0 col-12">
+            <mat-card class="border-0 shadow-none">
+              <mat-card-content class="py-3">
+                <p class="text-center mt-2">
+                  <img src="assets/logoDark.png" class="w-100" alt="">
+                </p>
+                <h3 class="text-start m-0">Welcome Back!</h3>
+                <h1 class="text-start mb-3 font-weight-bold">Register</h1>
+                <!-- <h4 class="text-center my-4">Sign in to start your session</h4> -->
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="font-weight-bold">Name</mat-label>
+                    <input type="text" autocomplete="off" matInput formControlName="username">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="font-weight-bold">Mobile Number</mat-label>
+                    <input type="text" autocomplete="off" matInput formControlName="mobile">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="font-weight-bold">Email</mat-label>
+                    <input type="text" autocomplete="off" matInput formControlName="email">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="w-100 mb-1">
+                    <mat-label class="font-weight-bold">Password</mat-label>
+                    <input type="password" autocomplete="off" matInput formControlName="password">
+                  </mat-form-field>
+                  <div class="row">
+                    <div class="col-12">
+                      <button class="float-end" mat-fab color="warn"><mat-icon>arrow_forward</mat-icon></button>
+                      <p class="float-start mt-4">
+                        Already Have an account? <a class="font-weight-bold text-decoration-none" (click)="swipePrev()">Login</a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                </form>
+
+                
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    
+  </div>
+</ion-content>

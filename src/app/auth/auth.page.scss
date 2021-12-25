@@ -1,0 +1,32 @@
+.login-page{
+    background-image: url('/assets/login-bg.png');
+    background-size: cover;
+    background-position: center;
+ }
+
+ .mat-card {
+     background-color: transparent !important;
+ }
+ .login-btn {
+     margin-top: -120px;
+     margin-right: -20px;
+ }
+ 
+ .login_div{
+     width: 100%;
+     min-height: 100vh;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     padding: 15px;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     position: relative;
+     z-index: 1;
+ }
+
+ .login_div a:hover {
+    cursor: pointer;
+ }

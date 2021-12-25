@@ -1,0 +1,52 @@
+<ion-content>
+  <div class="container-fluid p-0">
+    <h4 class="px-3 bg-light text-uppercase font-weight-bold p-2">My Cart</h4>    
+    <div class="row my-3 m-3">
+      <div class="col-12 p-0">
+        <div></div>
+        <div *ngIf="cartItems.length > 0; else nonif">
+          <div class="card mb-2 border-0" *ngFor="let p of cartItems">
+            <div class="card-body p-0">
+              <div class="row">
+                <div class="col-3 text-right my-auto">
+                  <div class="catIcon">
+                    <img [src]="p.image" alt="">
+                  </div>
+                </div>
+                <div class="col-9 ps-1 my-auto">
+                  <h3 class="font-weight-bold m-0 mt-2">{{ p.product_name }}
+                    <button (click)="removeCart(p.cart_id)" class="removeCart float-end"><i class="fas fa-trash-alt text-white"></i></button>
+                    <small class="font-weight-bold text-danger">{{ p.discount + p.discount_unit }} Off</small>
+                  </h3>
+                  <p class="text-danger mb-1" *ngIf="p.discount == 0;">
+                    <span class="badge bg-dark">{{ p.type }}</span>
+                    <span class="text-danger font-weight-bold me-2 float-end">Rs.{{ p.disc_price }}</span>
+                  </p>
+                  <p class="text-danger font-weight-bold mt-2" *ngIf="p.discount > 0;">
+                    <span class="badge bg-dark">{{ p.type }}</span>
+                    <span class="text-danger font-weight-bold me-2 float-end">Rs.{{ p.disc_price }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <div class="card border-0">
+              <div class="card-body">
+                <h2 class="m-0 font-weight-bold">
+                  <span class="float-end"><small>Total: </small>{{ total }}</span>
+                </h2>
+                <ion-button expand="full" class="mt-5" color="primary" (click)="addOrder()">Book an Appointment for Test</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #nonif>
+          <p class="my-5 text-center">No Records Found</p>
+        </ng-template>
+        
+      </div>
+    </div>
+
+  </div>
+</ion-content>

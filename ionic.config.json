@@ -1,0 +1,8 @@
+{
+  "name": "apple diagnostics",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

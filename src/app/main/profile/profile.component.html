@@ -1,0 +1,64 @@
+<ion-content>
+
+  <div class="container-fluid p-0">
+    <h4 class="bg-light px-3 text-uppercase font-weight-bold p-2">Profile Info</h4>
+    <ion-slides #slides pager="false">
+      <ion-slide>
+        <form class="p-3" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+          <div class="row">
+            <div class="col-12">
+              <mat-form-field class="w-100 mb-2" appearance="fill">
+                <mat-label>Name *</mat-label>
+                <input type="text" matInput formControlName="name" [(ngModel)]="profileInfo.name">
+              </mat-form-field>
+              <mat-form-field class="w-100 mb-2" appearance="fill">
+                <mat-label>Email *</mat-label>
+                <input type="text" matInput formControlName="email" [(ngModel)]="profileInfo.email">
+              </mat-form-field>
+              <mat-form-field class="w-100 mb-2" appearance="fill">
+                <mat-label>Mobile *</mat-label>
+                <input type="text" matInput formControlName="mobile" [(ngModel)]="profileInfo.mobile">
+              </mat-form-field>
+              <div class="row">
+                <div class="col-6 text-start">
+                  <button mat-raised-button color="primary" type="submit">Save Changes</button>
+                </div>
+                <div class="col-6 text-end">
+                  <button mat-button color="warn" (click)="slides.slideNext()" type="button">Change Password</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </form>    
+      </ion-slide>
+      <ion-slide>
+        <form class="p-3" [formGroup]="passwordForm" (ngSubmit)="updatePwd()" autocomplete="off">
+          <div class="row">
+            <div class="col-12">
+              <mat-form-field class="w-100 mb-2" appearance="fill">
+                <mat-label>Old Password *</mat-label>
+                <input type="password" autocomplete="off" matInput formControlName="old">
+              </mat-form-field>
+              <mat-form-field class="w-100 mb-2" appearance="fill">
+                <mat-label>New Password *</mat-label>
+                <input type="password" autocomplete="off" matInput formControlName="new">
+              </mat-form-field>
+              <div class="row">
+                <div class="col-6 text-start">
+                  <button mat-raised-button color="primary" type="submit">Save Changes</button>
+                </div>
+                <div class="col-6 text-end">
+                  <button mat-button color="warn" (click)="slides.slidePrev()" type="button">Update Profile</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </form>   
+      </ion-slide>
+    </ion-slides>
+    
+  </div>
+  <app-footer></app-footer>
+</ion-content>
