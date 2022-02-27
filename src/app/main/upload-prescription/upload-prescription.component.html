@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center mt-5">
+        <h1 class="upload-icon"><ion-icon name="cloud-upload-outline"></ion-icon></h1>
+        <img [src]="imageElement" alt="">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="w-100 text-center">
+              <button mat-raised-button color="warn" (click)="takePic()">Take Photo</button>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="w-100 text-center">
+              <!-- <input type="file" class="custom-file-input2" capture="camera"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-5">
+        <ion-button color="danger" class="w-100">Submit Prescription</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

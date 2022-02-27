@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -25,44 +25,77 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap');
-html,body,tr,td,li,a,span,p,label,h1,h2,h3,h4,h5,h6,div,section,input,textarea,select,ion-label,ion-card,ion-card-content,ion-card-header,ion-segment-button,ion-segment,ion-button{
-    font-family: "Jost", sans-serif !important;
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap");
+html,
+body,
+tr,
+td,
+li,
+a,
+span,
+p,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+section,
+input,
+textarea,
+select,
+ion-label,
+ion-card,
+ion-card-content,
+ion-card-header,
+ion-segment-button,
+ion-segment,
+ion-button {
+  font-family: "Jost", sans-serif !important;
 }
 .badge {
-    font-weight: 500 !important;
+  font-weight: 500 !important;
 }
 .font-weight-bold {
-    font-weight: 500 !important;
+  font-weight: 500 !important;
 }
 .ion-app-background {
-    --background: linear-gradient(to right, #396afc, #2948ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  --background: linear-gradient(
+    to right,
+    #396afc,
+    #2948ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .sidemenu-bg {
-    --background: url('/assets/sidemenu.png') !important;
-    // --background-size: cover !important;
+  --background: url("/assets/sidemenu.png") !important;
+  // --background-size: cover !important;
 }
 .app-background {
-    background-color: rgb(255,230,0);
+  background-color: rgb(255, 230, 0);
 }
 .mat-form-field-appearance-fill .mat-form-field-flex {
-    background-color: white !important;
+  background-color: white !important;
 }
 .hover-pointer:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .catIcon {
-    height: 80px;
-    width: 100%;
-    object-fit: cover;
+  height: 80px;
+  width: 100%;
+  object-fit: cover;
 }
 .catIcon img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .swal2-html-container {
-    margin-top: 0px !important;
+  margin-top: 0px !important;
 }
 .swal2-title {
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0px !important;
 }

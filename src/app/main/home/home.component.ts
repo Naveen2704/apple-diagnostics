@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { GlobalService } from 'src/app/services/global.service';
+import { SearchComponentComponent } from '../search-component/search-component.component';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +15,19 @@ export class HomeComponent implements OnInit {
   menusList: any = [];
   investigationsList: any = [];
   slidersList: any = [];
-  constructor(private service: GlobalService) { }
+  invSearchList: any;
+  constructor(private service: GlobalService, private modal: ModalController, private loader: LoadingController, private router: Router) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loader = await this.loader.create({
+      message: 'Loading'
+    })
+    await loader.present();
     this.categoriesList()
     this.packages()
     this.investigations()
     this.sliders()
+    await loader.dismiss()
   }
 
   categoriesList() {
@@ -30,6 +39,25 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  invSearch(value) {
+    var method = "invPackSearch"
+    console.log(value)
+    this.service.getData(method, value).subscribe((res: any ) => {
+      if(res.code === "200") {
+        this.invSearchList = res.result.search
+      }
+    }, (error) => {
+      this.service.showAlert('Warning', 'No Investigations/Packages Found', 'error','#f00')
+    })
+  }
+
+  async openSearchModal() {
+    const modal = await this.modal.create({
+      component: SearchComponentComponent
+    })
+    await modal.present();
+  }
+
   packages() {
     var method = "GetPackages";
     var res = this.service.getData(method).subscribe(async (data: any) => {
@@ -39,9 +67,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  invInfo(data) {
+    console.log(data)
+    this.router.navigate(['/single/' + data.id + '/' + data.type])
+  }
+
   investigations() {
-    var method = "GetInvestigations";
-    var res = this.service.getData(method).subscribe(async (data: any) => {
+    var method = "popularInvestigations";
+    var postData = [];
+    postData['popular'] = 1;
+    var res = this.service.postGetData(method, postData).subscribe(async (data: any) => {
       this.investigationsList = data.result.investigations;
     }, (error) => {
       this.service.showAlert('Error', 'Something went wrong', 'error','#f00')

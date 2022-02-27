@@ -1,5 +1,18 @@
 <ion-content>
-  <div class="container-fluid py-3">
+
+
+  <div class="container-fluid py-1">
+
+    <div class="row justify-content-center">
+      <div class="col-md-3 col-lg-3 col-3 p-0 hover-pointer" routerLink="/tests/{{ p.menu_id }}"  *ngFor="let p of menusList">
+        <div class="card border-0 mb-2 text-center align-items-center">
+          <img [src]="p.menu_image" class="catIcon" style="border-radius: 50%;height: 65px;width: 65px">
+          <div class="card-body p-1 my-1">
+            <h4 class="text-center m-0 font-weight-bold">{{ p.menu_name }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <ion-slides class="mb-3 rounded shadow" pager="true">
       <ion-slide *ngFor="let p of slidersList" class="border-0">
@@ -7,16 +20,6 @@
       </ion-slide>
     </ion-slides>
 
-    <div class="row">
-      <div class="col-md-4 col-lg-4 col-4 hover-pointer" routerLink="/tests/{{ p.menu_id }}"  *ngFor="let p of menusList">
-        <div class="card border-0 shadow mb-2">
-          <img [src]="p.menu_image" class="w-100 catIcon">
-          <div class="card-body p-1 my-1">
-            <h4 class="text-center m-0 font-weight-bold">{{ p.menu_name }}</h4>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-12">
@@ -44,7 +47,7 @@
             <div class="row">
               <div class="col-3 text-right my-auto">
                 <div class="catIcon">
-                  <img [src]="p.image" alt="">
+                  <img [src]="p.image" onerror="this.src='assets/icon.png'" alt="">
                 </div>
               </div>
               <div class="col-9 ps-1 my-auto">

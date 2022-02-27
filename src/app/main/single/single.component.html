@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <img [src]="info.image" class="py-4 rounded" alt="">
+        <h3 class="mb-0">{{ info.investigation_name }}</h3>
+        <h2>Rs. {{ info.price }}</h2>
+        <p class="py-2 border-bottom font-weight-bold">About Investigation Info</p>
+        <p>{{ info.description }}</p>
+        <button class="w-100" color="primary" mat-raised-button  (click)="addToCart(info.investigation_id, type)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

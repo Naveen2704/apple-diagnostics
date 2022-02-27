@@ -28,8 +28,17 @@ export class GlobalService {
   }
 
   getData(method, id = ''){
-    let url = base_url + "/" + method + "/" + id;
+    let url = base_url + "/" + method + "/" + id 
     return this.http.get(url);    
+  }
+
+  postGetData(method, postData) {
+    let url = base_url + "/" + method
+    let fd = new FormData();
+    fd.append("popular", postData.popular)
+    fd.append("category", postData.category)
+    fd.append("limit", postData.limit)
+    return this.http.post(url, fd)
   }
 
   addAddress(address_id, date, order_id) {
@@ -60,7 +69,7 @@ export class GlobalService {
 
   async addCart(investigation_id, type) {
     var userData = JSON.parse(localStorage.getItem('userInfo'))
-    let url = base_url + "addToCart/" + investigation_id + "/" + type + "/" + userData.user_id;
+    let url = base_url + "/addToCart/" + investigation_id + "/" + type + "/" + userData.user_id;
     const loader = await this.loading.create({
       message: 'Getting Data'
     })
