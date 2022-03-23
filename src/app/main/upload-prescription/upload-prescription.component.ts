@@ -27,7 +27,8 @@ export class UploadPrescriptionComponent implements OnInit {
     var imageUrl = image.webPath;
   
     // Can be set to the src of an image now
-    this.imageElement.src = imageUrl;
+    this.imageElement = imageUrl;
+    console.log(this.imageElement)
     // const takePicture = async () => {
       
     // };

@@ -8,6 +8,9 @@ import { PackagesComponent } from './main/packages/packages.component';
 import { PlaceOrderComponent } from './main/place-order/place-order.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { TestsComponent } from './main/tests/tests.component';
+import { SingleComponent } from './main/single/single.component';
+import { UploadPrescriptionComponent } from './main/upload-prescription/upload-prescription.component';
+import { AccountComponent } from './main/account/account.component';
 
 const routes: Routes = [
   {
@@ -48,6 +51,10 @@ const routes: Routes = [
         component: PackagesComponent
       },
       {
+        path: 'account',
+        component: AccountComponent
+      },
+      {
         path: 'tests',
         component: TestsComponent
       },
@@ -58,6 +65,14 @@ const routes: Routes = [
       {
         path: 'place-order/:id',
         component: PlaceOrderComponent
+      },
+      {
+        path: 'single/:id/:id1',
+        component: SingleComponent
+      },
+      {
+        path: 'upload',
+        component: UploadPrescriptionComponent
       }
     ]
   },
@@ -66,7 +81,6 @@ const routes: Routes = [
     loadChildren: () => import('./registration-success/registration-success.module').then( m => m.RegistrationSuccessPageModule)
   }
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

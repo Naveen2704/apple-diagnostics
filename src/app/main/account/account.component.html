@@ -1,0 +1,35 @@
+<div class="container h-100 bg-white">
+  <div class="row py-3">
+    <div class="col-3 text-center my-auto">
+      <h1 style="font-size: 52px" class="text-black mb-0"><i class="fas fa-user"></i></h1>
+    </div>
+    <div class="col-9">
+      <h1 class="mb-1">{{ userInfo.username }}
+        <!-- <button mat-mini-fab color="primary" class="float-end"><i class="fas fa-pencil-alt"></i></button> -->
+      </h1>
+      <h3 class="mb-0">{{ userInfo.email }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="border p-2 border-bottom-0 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-user ms-1 pe-2"></i> My Profile</a>
+      </p>
+      <p class="border p-2 border-bottom-0 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-shopping-cart pe-2"></i> Cart</a>
+      </p>
+      <p class="border p-2 border-bottom-0 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-tasks pe-2"></i> My Orders</a>
+      </p>
+      <p class="border p-2 border-bottom-0 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-list pe-2"></i> My Address</a>
+      </p>
+      <p class="border p-2 border-bottom-0 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-file-alt ms-1 pe-2"></i> Terms & Conditions</a>
+      </p>
+      <p class="border p-2 mb-0">
+        <a class="ms-2 text-dark"  routerLink="/profile"><i class="fas fa-power-off pe-2"></i> Logout</a>
+      </p>
+    </div>
+  </div>
+</div>

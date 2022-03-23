@@ -19,6 +19,13 @@ import { TestsComponent } from './main/tests/tests.component';
 import { PackagesComponent } from './main/packages/packages.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlaceOrderComponent } from './main/place-order/place-order.component';
+import { SearchComponentComponent } from './main/search-component/search-component.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HashLocationStrategy } from '@angular/common';
+import { SingleComponent } from './main/single/single.component';
+import { UploadPrescriptionComponent } from './main/upload-prescription/upload-prescription.component';
+import { AuthService } from './services/auth.service';
+import { AccountComponent } from './main/account/account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,11 @@ import { PlaceOrderComponent } from './main/place-order/place-order.component';
     CartComponent,
     TestsComponent,
     PackagesComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    SearchComponentComponent,
+    SingleComponent,
+    UploadPrescriptionComponent,
+    AccountComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,

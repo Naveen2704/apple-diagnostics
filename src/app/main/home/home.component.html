@@ -3,10 +3,10 @@
 
   <div class="container-fluid py-1">
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-2">
       <div class="col-md-3 col-lg-3 col-3 p-0 hover-pointer" routerLink="/tests/{{ p.menu_id }}"  *ngFor="let p of menusList">
-        <div class="card border-0 mb-2 text-center align-items-center">
-          <img [src]="p.menu_image" class="catIcon" style="border-radius: 50%;height: 65px;width: 65px">
+        <div class="card border-0 mb-0 text-center align-items-center">
+          <img [src]="p.menu_image" class="catIcon" style="border-radius: 50%;height: 60px;width: 60px">
           <div class="card-body p-1 my-1">
             <h4 class="text-center m-0 font-weight-bold">{{ p.menu_name }}</h4>
           </div>

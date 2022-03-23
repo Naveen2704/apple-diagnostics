@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
     { title: 'My Orders', url: '/orders', icon: 'reorder-four' },
     { title: 'Login/Signup', url: '/auth', icon: 'lock-closed' },
   ];
+  invSearchList: any;
 
   constructor(private router: Router, private service: AuthService, private global: GlobalService, private route: ActivatedRoute) { 
     this.route.params.subscribe(() => {
@@ -33,11 +34,28 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.localCart = JSON.parse(localStorage.getItem('cartItemsCount'))
-    if(this.global.cartSub === undefined){
-      this.global.cartSub = this.global.invokeCart.subscribe((res:any)=>{
-          this.getCartCount();
-      });
+      if(this.global.cartSub === undefined){
+        this.global.cartSub = this.global.invokeCart.subscribe((res:any)=>{
+            this.getCartCount();
+        });
+    }
   }
+
+  invSearch(value) {
+    var method = "invPackSearch"
+    console.log(value)
+    this.global.getData(method, value).subscribe((res: any ) => {
+      if(res.code === "200") {
+        this.invSearchList = res.result.search
+      }
+    }, (error) => {
+      this.global.showAlert('Warning', 'No Investigations/Packages Found', 'error','#f00')
+    })
+  }
+  
+  invInfo(data) {
+    console.log(data)
+    this.router.navigate(['/single/' + data.id + '/' + data.type])
   }
 
   changeUrl(url) {

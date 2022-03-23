@@ -1,9 +1,15 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { base_url } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { Subscription } from 'rxjs';
+
+var headers_object = new HttpHeaders();
+headers_object.append('Content-Type', 'application/json');
+headers_object.append('Access-Control-Request-Headers',"true");
+
+const httpOptions = { headers: headers_object };
 
 @Injectable({
   providedIn: 'root'

@@ -1,13 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 import { base_url } from 'src/environments/environment';
 import { LoadingController } from '@ionic/angular';
 
+var headers_object = new HttpHeaders();
+headers_object.append('Content-Type', 'application/json');
+headers_object.append('Access-Control-Request-Headers',"true");
+
+const httpOptions = { headers: headers_object };
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
 
   constructor(private http: HttpClient, private loader: LoadingController) { }
 
